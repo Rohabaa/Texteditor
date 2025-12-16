@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>texteditor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container py-5">
+            <h1 class="mb-3 d-flex justify-content-center">Rich Text Ediror</h1>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="toolbar">
+                    <div class="d-flex gap-2 align-items-center mb-1">
+                    <!-- style -->
+                    <button class="btn btn-light" id="boldd" onclick="forbold()"><i class="fa-solid fa-bold"></i></button>
+                    <button class="btn btn-light" id="italic"><i class="fa-solid fa-italic"></i></button>
+                    <button class="btn btn-light" id="underline"><i class="fa-solid fa-underline"></i></button>
+                    <!-- alignment -->
+                    <button class="btn btn-light"><i class="fa-solid fa-align-left"></i></button>
+                    <button class="btn btn-light"><i class="fa-solid fa-align-center"></i></button>
+                    <button class="btn btn-light"><i class="fa-solid fa-align-right"></i></button>
+
+
+                    <!-- list  -->
+                    <button class="btn btn-light"><i class="fa-solid fa-list-ol"></i></button>
+                    <button class="btn btn-light"><i class="fa-solid fa-list-ul"></i></button>
+                    <!-- color -->
+                    <button class="btn btn-light"> <input class="form-control form-control-sm " type="color"
+                            id="foreColor" title="Text color">
+                        <button class="btn btn-light"><input class="form-control form-control-sm " type="color"
+                                id="hiliteColor" title="Background color"></button>
+                    </button>
+                    <!-- font size,family -->
+                    <select class="form-select form-select-sm w-auto" aria-label="Default select example">
+                        <option selected>Font</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <select class="form-select w-auto" aria-label="Default select example">
+                        <option selected>Font Size</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    </div>
+                      <div class="d-flex gap-2 align-items-center">
+                    <!-- qoute -->
+                    <button class="btn btn-light"><i class="fa-solid fa-quote-left"></i></button>
+                    <!-- emogi -->
+                    <button class="btn btn-light"><i class="fa-regular fa-face-smile"></i></button>
+                    <!-- redo undo -->
+                    <button class="btn btn-light"><i class="fa-solid fa-rotate-left"></i></button>
+                    <button class="btn btn-light"><i class="fa-solid fa-rotate-right"></i></button>
+
+                    <!-- eraser -->
+                    <button class="btn btn-light" id="eraser"><i class="fa-solid fa-eraser"></i></button>
+                    <!-- images -->
+                    <button class="btn btn-light"><i class="fa-solid fa-image"></i></button>
+                    <!-- cut -->
+                    <button class="btn btn-light"><i class="fa-solid fa-scissors"></i></button>
+                    <!-- indent -->
+                    <button class="btn btn-light" title="Indent">
+                        <i class="fa-solid fa-indent"></i>
+                    </button>
+
+                    <button class="btn btn-light" title="Outdent">
+                        <i class="fa-solid fa-outdent"></i>
+                    </button>
+                      </div>
+
+
+
+                </div>
+
+            </div>
+            <div class="card-body">
+                <div id="editor" contenteditable="true" class="border p-3" style="min-height:200px;" >
+                  
+                </div>
+            </div>
+             <div class="card-footer">
+                       <button class="px-4 py-2 clearbtn" title="Indent">
+                        Clear
+\                        </button>
+                   </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+        <script src="app.js"></script>
+</body>
+
+</html>
