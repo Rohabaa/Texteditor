@@ -8,74 +8,88 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container py-5">
-            <h1 class="mb-3 d-flex justify-content-center">Rich Text Ediror</h1>
+        <h1 class="mb-3 d-flex justify-content-center">Rich Text Ediror</h1>
 
         <div class="card">
             <div class="card-header">
                 <div class="toolbar">
                     <div class="d-flex gap-2 align-items-center mb-1">
-                    <!-- style -->
-                    <button class="btn btn-light" id="boldd" onclick="forbold()"><i class="fa-solid fa-bold"></i></button>
-                    <button class="btn btn-light" id="italic"><i class="fa-solid fa-italic"></i></button>
-                    <button class="btn btn-light" id="underline"><i class="fa-solid fa-underline"></i></button>
-                    <!-- alignment -->
-                    <button class="btn btn-light"><i class="fa-solid fa-align-left"></i></button>
-                    <button class="btn btn-light"><i class="fa-solid fa-align-center"></i></button>
-                    <button class="btn btn-light"><i class="fa-solid fa-align-right"></i></button>
+                        <!-- style -->
+                        <button class="btn btn-light" id="boldd" onclick="forbold()"><i
+                                class="fa-solid fa-bold"></i></button>
+                        <button class="btn btn-light" id="italic" onclick="foritalic()"><i
+                                class="fa-solid fa-italic"></i></button>
+                        <button class="btn btn-light" id="underline"><i class="fa-solid fa-underline"></i></button>
+                        <!-- alignment -->
+                        <button class="btn btn-light" onclick="onright()" id="onright"><i
+                                class="fa-solid fa-align-left"></i></button>
+                        <button class="btn btn-light" onclick="oncenter()"><i
+                                class="fa-solid fa-align-center"></i></button>
+                        <button class="btn btn-light" onclick="onleft()"><i
+                                class="fa-solid fa-align-right"></i></button>
 
 
-                    <!-- list  -->
-                    <button class="btn btn-light"><i class="fa-solid fa-list-ol"></i></button>
-                    <button class="btn btn-light"><i class="fa-solid fa-list-ul"></i></button>
-                    <!-- color -->
-                    <button class="btn btn-light"> <input class="form-control form-control-sm " type="color"
-                            id="foreColor" title="Text color">
-                        <button class="btn btn-light"><input class="form-control form-control-sm " type="color"
-                                id="hiliteColor" title="Background color"></button>
-                    </button>
-                    <!-- font size,family -->
-                    <select class="form-select form-select-sm w-auto" aria-label="Default select example">
-                        <option selected>Font</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <select class="form-select w-auto" aria-label="Default select example">
-                        <option selected>Font Size</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                        <!-- list  -->
+                        <button class="btn btn-light" id="orderedList"><i class="fa-solid fa-list-ol"></i></button>
+                        <button class="btn btn-light" id="unorderedList"><i class="fa-solid fa-list-ul"></i></button>
+                        <!-- color -->
+                        <input class="form-control form-control-sm btn btn-light" type="color" id="textColor"
+                            title="Text color" onchange="colorchange()">
+
+                        <input class="form-control form-control-sm btn btn-light" type="color" id="backColor"
+                            title="Background color">
+
+                        <!-- font size,family -->
+                        <select id="fontFamily" class="form-select form-select-sm w-auto" aria-label="Font Family">
+                            <option selected disabled>Font</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Tahoma">Tahoma</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Courier New">Courier New</option>
+                        </select>
+
+                        <select id="fontSize" class="form-select w-auto" aria-label="Font Size">
+                            <option selected disabled>Font Size</option>
+                            <option value="1">Very Small</option>
+                            <option value="2">Small</option>
+                            <option value="3">Medium</option>
+                            <option value="4">Large</option>
+                            <option value="5">Very Large</option>
+                            <option value="6">Huge</option>
+                            <option value="7">Maximum</option>
+                        </select>
+
                     </div>
-                      <div class="d-flex gap-2 align-items-center">
-                    <!-- qoute -->
-                    <button class="btn btn-light"><i class="fa-solid fa-quote-left"></i></button>
-                    <!-- emogi -->
-                    <button class="btn btn-light"><i class="fa-regular fa-face-smile"></i></button>
-                    <!-- redo undo -->
-                    <button class="btn btn-light"><i class="fa-solid fa-rotate-left"></i></button>
-                    <button class="btn btn-light"><i class="fa-solid fa-rotate-right"></i></button>
+                    <div class="d-flex gap-2 align-items-center">
+                        <!-- qoute -->
+                        <button class="btn btn-light" id="quote"><i class="fa-solid fa-quote-left"></i></button>
+                        <!-- emogi -->
+                        <button class="btn btn-light"><i class="fa-regular fa-face-smile"></i></button>
+                        <!-- redo undo -->
+                        <button class="btn btn-light" id="undo"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button class="btn btn-light" id="redo"><i class="fa-solid fa-rotate-right"></i></button>
 
-                    <!-- eraser -->
-                    <button class="btn btn-light" id="eraser"><i class="fa-solid fa-eraser"></i></button>
-                    <!-- images -->
-                    <button class="btn btn-light"><i class="fa-solid fa-image"></i></button>
-                    <!-- cut -->
-                    <button class="btn btn-light"><i class="fa-solid fa-scissors"></i></button>
-                    <!-- indent -->
-                    <button class="btn btn-light" title="Indent">
-                        <i class="fa-solid fa-indent"></i>
-                    </button>
+                        <!-- eraser -->
+                        <button class="btn btn-light" id="eraser"><i class="fa-solid fa-eraser"></i></button>
+                        <!-- images -->
+                        <button class="btn btn-light" onclick="insertImage()"><i class="fa-solid fa-image"></i></button>
+                        <!-- cut -->
+                        <button class="btn btn-light"><i class="fa-solid fa-scissors"></i></button>
+                        <!-- indent -->
+                        <button class="btn btn-light" title="Indent" id="indent">
+                            <i class="fa-solid fa-indent"></i>
+                        </button>
 
-                    <button class="btn btn-light" title="Outdent">
-                        <i class="fa-solid fa-outdent"></i>
-                    </button>
-                      </div>
+                        <button class="btn btn-light" title="Outdent" id="outdent">
+                            <i class="fa-solid fa-outdent"></i>
+                        </button>
+                    </div>
 
 
 
@@ -83,22 +97,22 @@
 
             </div>
             <div class="card-body">
-                <div id="editor" contenteditable="true" class="border p-3" style="min-height:200px;" >
-                  
+                <div id="editor" contenteditable="true" class="border p-3" style="min-height:200px;">
+                    ...
                 </div>
             </div>
-             <div class="card-footer">
-                       <button class="px-4 py-2 clearbtn" title="Indent">
-                        Clear
-\                        </button>
-                   </div>
+            <div class="card-footer">
+                <button class="px-4 py-2 clearbtn" title="Indent" onclick="onclear()">
+                    Clear
+                    \ </button>
+            </div>
 
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-        <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
